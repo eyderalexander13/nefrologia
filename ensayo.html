@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup con iframe</title>
+    <style>
+        .boton-popup {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón para abrir el popup -->
+    <a href="javascript:void(0);" class="boton-popup" onclick="abrirPopup()">Abrir Popup</a>
+
+    <script>
+        function abrirPopup() {
+            // URL del contenido que deseas cargar en el iframe
+            var url = 'https://www.pedz.de/de/pedz/bmi.html';
+
+            // Dimensiones del popup
+            var width = 800;
+            var height = 600;
+
+            // Calcular la posición centrada del popup en la pantalla
+            var left = (window.innerWidth - width) / 2;
+            var top = (window.innerHeight - height) / 2;
+
+            // Abrir la ventana popup con el iframe
+            var popup = window.open('', '_blank', 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top);
+            
+            // Generar el contenido HTML para el popup
+            var contenidoPopup = `
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Popup con iframe</title>
+                    <style>
+                        body {
+                            margin: 0;
+                            padding: 0;
+                            overflow: hidden;
+                        }
+                        iframe {
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <iframe src="${url}"></iframe>
+                </body>
+                </html>
+            `;
+
+            // Escribir el contenido en el popup
+            popup.document.write(contenidoPopup);
+        }
+    </script>
+</body>
+</html>

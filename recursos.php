@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="imagenes/icono.png" type="image/png">
+    <title>Nefrolog&iacute;a pedi&aacute;trica - Hospital Universitario del Valle</title>
+    <link rel="stylesheet" href="lightbox/dist/css/lightbox.min.css">
+    <style>
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1c69af; /* Color de fondo */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+		    font-size: 14px;
+      }
+
+      header {
+        background-color: #4faae8; /* Color del banner superior */
+        width: 100%;
+        padding: 0;
+        position: fixed; /* Fija el encabezado en la parte superior */
+        z-index: 100; /* Asegura que el encabezado esté en la parte superior */
+      }
+
+      .upper-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 160px;
+    background-image: url('imagenes/banner.png'); /* Reemplaza 'ruta/de/tu/imagen/fondo.jpg' con la ruta de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: right; /* Centra la imagen en el contenedor */
+    position: relative; /* Añade posición relativa para que los elementos hijos se posicionen correctamente */
+    color: white;
+}
+
+      .left-image {
+        flex-shrink: 0; /* Evita que la imagen se reduzca si es muy grande */
+      }
+
+.left-image img {
+    margin-left: 15px; /* Ajusta este valor según el espacio que desees */
+}
+
+      .title {
+        flex-grow: 1; /* El texto ocupa todo el espacio disponible en el centro */
+        text-align: center;
+        color: white;
+        font-size: 50px;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .right-image {
+        flex-shrink: 0; /* Evita que la imagen se reduzca si es muy grande */
+      }
+
+      footer {
+        background-color: #333; /* Color del pie de página */
+        width: 100%;
+        height: 100px; /* Altura del pie de página */
+        display: flex;
+        justify-content: center; /* Centrar contenido horizontalmente */
+        align-items: center; /* Centrar contenido verticalmente */
+        color: white; /* Color de texto */
+      }
+
+      .container {
+        display: flex;
+        flex-grow: 1;
+        margin-top: 200px; /* Ajusta el margen superior para evitar que el contenido quede debajo del encabezado */
+      }
+
+      .menu {
+        background-color: #fff; /* Color de fondo de los menús laterales */
+        flex-basis: 10%; /* Ancho de los menús laterales */
+        padding: 8px;
+        display: flex;
+        flex-direction: column; /* Botones en disposición vertical */
+      }
+
+
+      .content {
+        background-color: #fff; /* Color del espacio central */
+        flex-grow: 1;
+        padding: 10px;
+      }
+
+      iframe {
+        width: 100%;
+        height: 500px;
+        border: none; /* Eliminar bordes */
+        outline: none; /* Eliminar el borde de enfoque */
+      }
+
+      /* Estilos para el menú superior */
+      .menu-top {
+        display: flex;
+        padding: 3px;
+        justify-content: center;
+        background-color: #4A454B;
+      }
+	  
+/* Estilos para los botones del menú superior */
+.menu-top {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+    margin-bottom: 0; /* Asegúrate de que el margen inferior sea 0 */
+}
+.menu-top-button {
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px; /* Margen derecho para separar los botones */
+    display: inline-block; /* Mostrar los botones en línea */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Colores específicos para cada botón del menú superior */
+.inicio { background-color: #017180; }
+.guias { background-color: #01a550; }
+.revisiones { background-color: #fa9a20; }
+.recursos { background-color: #eb2e63; }
+.calculadoras { background-color: #E51830; }
+.creditos { background-color: #07c3f3; }
+
+.menu-top-button:hover {
+    background-color: #cff307; /* Cambio de color al pasar el cursor sobre los botones */
+}
+
+/* Estilos para los botones del menú lateral */
+.menu-button {
+    color: white;
+    display: flex;
+    padding: 5px 5px;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px 5px 0; /* Margen inferior y derecho para separar los botones */
+}
+
+.menu-button img {
+  margin-right: 5px; /* Agrega un margen a la derecha de la imagen para separarla del texto */
+}
+
+/* Colores específicos para cada botón del menú lateral */
+.puericultura { background-color: #4f66ac; }
+.cardiologia { background-color: #F77A88; }
+.endocrinologia { background-color: #ffd64a; }
+.urologia { background-color: #895F64; }
+.nutricion { background-color: #78c144; }
+/* Agrega colores específicos para los demás botones del menú lateral según sea necesario */
+
+.menu-button:hover {
+    background-color: #cff307; /* Cambio de color al pasar el cursor sobre los botones */
+}
+
+  .collage {
+        column-count: 3; /* Número de columnas deseado */
+        column-gap: 10px; /* Espacio entre las columnas */
+        background-color: #fff; /* Color de fondo blanco */
+        padding: 10px; /* Margen alrededor de la galería */
+    }
+
+    .collage a {
+    
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho de la columna */
+        margin-bottom: 10px; /* Agrega un espacio entre las imágenes */
+    }
+
+    .collage img {
+        max-width: 100%;
+        height: auto;
+    }
+
+.modal {
+    display: none;
+    position: fixed; /* Cambiado de 'absolute' a 'fixed' */
+    z-index: 1000;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+    width: 100%;
+    height: 120%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+        .modal-contenido {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height: 80%;
+            overflow: hidden;
+            position: relative;
+        }
+
+
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+    </style>
+  </head>
+
+  <body>
+
+
+
+    <header>
+      <div class="upper-section">
+        <div class="left-image">
+		  <!-- Coloca tu imagen izquierda aqu&iacute; -->
+          <img src="imagenes/nefrologia.png" alt="Consulta externa de Pediatría - HUV" height="140" align="right">
+        </div>
+        <div class="title">
+		 <!-- T&iacute;tulo de la p&aacute;gina --> 
+		 </div>
+
+		</div>
+      </div>
+      <!-- Contenido del menú superior inferior -->
+      <div class="menu-top">
+<a class="menu-button menu-top-button inicio" href="index.html">Inicio</a>
+<a class="menu-button menu-top-button guias" href="guias.php">Gu&iacute;as</a>
+<a class="menu-button menu-top-button revisiones" href="revisiones.php">Revisiones</a>
+<a class="menu-button menu-top-button recursos" href="recursos.html">Recursos</a>
+<a class="menu-button menu-top-button calculadoras" href="calculadoras.html">Calculadoras</a>
+<a class="menu-button menu-top-button creditos" href="contacto.html">Contacto</a>
+      </div>
+    </header>
+</br>
+    <div class="container">
+      <div class="menu">
+
+<a class="menu-button cardiologia" href="cardiologia.html"><img src="imagenes/cardiologia.png" width="40" height="40">Cardiolog&iacute;a</a>
+<a class="menu-button endocrinologia" href="endocrinologia.html"><img src="imagenes/endocrinologia.png" width="40" height="40">Endocrinolog&iacute;a</a>
+
+<a class="menu-button nutricion" href="nutricion.html"><img src="imagenes/nutricion.png" width="40" height="40">Nutrici&oacute;n</a>
+
+<a class="menu-button urologia" href="urologia.html"><img src="imagenes/urologia.png" width="40" height="40">Urolog&iacute;a</a>
+
+<a class="menu-button puericultura" href="puericultura.html"><img src="imagenes/puericultura.png" width="40" height="40">Puericultura</a>
+      </div>
+
+
+
+      <div class="content">
+       
+<h1>Recursos de Nefrolog&iacute;a pedi&aacute;trica</h1>
+<p>En esta secci&oacute;n encontrar&aacute;s tablas, figuras, algoritmos y esquemas relacionados con la rotaci&oacute;n de nefrolog&iacute;a pedi&aacute;trica.</p>
+
+<h2>Infograf&iacute;as</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/infografias/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Fisiolog&iacute;a renal</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/fisiologia/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Malformaciones cong&eacute;nitas de la v&iacute;a urinaria (CAKUT)</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/CAKUT/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Enuresis</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/enuresis/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Enfermedad renal cr&oacute;nica</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/ERC/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+
+<h2>Hipercalciuria</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/hipercalciuria/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div></br>
+
+<h2>Insuficiencia renal aguda (ERA)</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/IRA/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Infecciones del tracto urinario (ITU)</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/valores_referencia/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+
+
+
+<h2>S&iacute;ndrome nefr&iacute;tico</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/nefritico/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Pruebas de funci&oacute;n renal</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/funcion_renal/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Valores de referencia</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/valores_referencia/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+</div>
+</br>
+
+<h2>Procedimientos</h2>
+<div class="collage">
+<?php
+            $directory = 'imagenes/recursos/procedimientos/'; // Directorio donde están tus imágenes
+            $images = glob($directory . "/*.{jpg,jpeg,png,gif,JPG}", GLOB_BRACE);
+            ?>
+
+            <?php foreach ($images as $image): ?>
+                <?php
+                $filename = pathinfo($image, PATHINFO_FILENAME);
+                ?>
+
+                <a href="<?php echo $image; ?>" data-lightbox="gallery">
+                    <img src="<?php echo $image; ?>" alt="Image">
+                </a>
+            <?php endforeach; ?>
+
+</div>
+
+<div id="pdf-modal" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <iframe id="pdf-js-viewer" src="" title="webviewer"></iframe>
+    </div>
+</div>
+
+
+
+<!-- Agrega el JavaScript de Lightbox2 -->
+<script src="lightbox/dist/js/lightbox-plus-jquery.min.js"></script>
+
+    </div>
+
+      <div class="menu" align="center">
+        <!-- Contenido del menú derecho -->
+        <a href="https://www.huv.gov.co/" target="_blank">
+          <img src="imagenes/huv.jpg" alt="Hospital Universitario del Valle 'Evaristo García'" width="130px">
+        </a>
+</br>
+                <a href="https://scp.com.co/" target="_blank">
+          <img src="imagenes/logo_scp.png" alt="Sociedad Colombiana de Pediatría" width="110px">
+        </a>
+</br>
+                <a href="https://www.alanepe.org/" target="_blank">
+          <img src="imagenes/logo_alanepe.jpg" alt="Asociación latinoamericana de nefrología pediátrica" width="80px">
+        </a>
+                <a href="https://www.aenp.es/" target="_blank">
+          <img src="imagenes/logo_aenp.png" alt="Asociación española de nefrología pediátrica" width="130px">
+        </a>
+
+      </div>
+  </div>
+
+    <footer>
+       <center>
+      <!-- Contenido del pie de p&aacute;gina -->
+      Copyright &#169; Dra. Consuelo Restrepo de Rovetto & Dra. Margarita Calle, Nefr&oacute;logas pediatras; residentes y m&eacute;dicos internos de la Universidad del Valle. 
+    </br>    </br>
+    Desarrollo web por Eyder A. Rodr&iacute;guez, m&eacute;dico interno - <img src="imagenes/whatsapp.png" alt="Whatsapp" width="13px"> 311 710 7008 
+   </center>
+    </footer>
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var pdfLinks = document.querySelectorAll(".pdf-link");
+    var pdfViewer = document.getElementById("pdf-js-viewer");
+    var modal = document.getElementById("pdf-modal");
+    var span = document.getElementsByClassName("cerrar")[0];
+
+    pdfLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            var pdfUrl = link.getAttribute("data-pdf");
+            pdfViewer.src = pdfUrl;
+            modal.style.display = "block";
+        });
+    });
+
+    span.onclick = function() {
+        modal.style.display = "none";
+        pdfViewer.src = "";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            pdfViewer.src = "";
+        }
+    }
+});
+
+
+    </script>
+
+  </body>
+
+
+
+</html>
+
